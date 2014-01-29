@@ -14,13 +14,17 @@
 		3A4EFD5218984481006F0C8F /* main.m in Sources */ = {isa = PBXBuildFile; fileRef = 3A4EFD5118984481006F0C8F /* main.m */; };
 		3A4EFD5618984481006F0C8F /* AppDelegate.m in Sources */ = {isa = PBXBuildFile; fileRef = 3A4EFD5518984481006F0C8F /* AppDelegate.m */; };
 		3A4EFD5918984481006F0C8F /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 3A4EFD5718984481006F0C8F /* Main.storyboard */; };
-		3A4EFD5C18984481006F0C8F /* ViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 3A4EFD5B18984481006F0C8F /* ViewController.m */; };
+		3A4EFD5C18984481006F0C8F /* MasterViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 3A4EFD5B18984481006F0C8F /* MasterViewController.m */; };
 		3A4EFD5E18984481006F0C8F /* Images.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 3A4EFD5D18984481006F0C8F /* Images.xcassets */; };
 		3A4EFD6518984481006F0C8F /* XCTest.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 3A4EFD6418984481006F0C8F /* XCTest.framework */; };
 		3A4EFD6618984481006F0C8F /* Foundation.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 3A4EFD4518984481006F0C8F /* Foundation.framework */; };
 		3A4EFD6718984481006F0C8F /* UIKit.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 3A4EFD4918984481006F0C8F /* UIKit.framework */; };
 		3A4EFD6F18984481006F0C8F /* InfoPlist.strings in Resources */ = {isa = PBXBuildFile; fileRef = 3A4EFD6D18984481006F0C8F /* InfoPlist.strings */; };
 		3A4EFD7118984481006F0C8F /* LostCharactersTests.m in Sources */ = {isa = PBXBuildFile; fileRef = 3A4EFD7018984481006F0C8F /* LostCharactersTests.m */; };
+		3A4EFD7C189845F9006F0C8F /* LostDataModel.xcdatamodeld in Sources */ = {isa = PBXBuildFile; fileRef = 3A4EFD7A189845F9006F0C8F /* LostDataModel.xcdatamodeld */; };
+		3A4EFD7F18985DAC006F0C8F /* Characters.m in Sources */ = {isa = PBXBuildFile; fileRef = 3A4EFD7E18985DAC006F0C8F /* Characters.m */; };
+		3A4EFD82189864FA006F0C8F /* AddCharacterViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 3A4EFD81189864FA006F0C8F /* AddCharacterViewController.m */; };
+		3A4EFD8518988B98006F0C8F /* CharacterDetailViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 3A4EFD8418988B98006F0C8F /* CharacterDetailViewController.m */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -45,14 +49,21 @@
 		3A4EFD5418984481006F0C8F /* AppDelegate.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = AppDelegate.h; sourceTree = "<group>"; };
 		3A4EFD5518984481006F0C8F /* AppDelegate.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = AppDelegate.m; sourceTree = "<group>"; };
 		3A4EFD5818984481006F0C8F /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/Main.storyboard; sourceTree = "<group>"; };
-		3A4EFD5A18984481006F0C8F /* ViewController.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = ViewController.h; sourceTree = "<group>"; };
-		3A4EFD5B18984481006F0C8F /* ViewController.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = ViewController.m; sourceTree = "<group>"; };
+		3A4EFD5A18984481006F0C8F /* MasterViewController.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = MasterViewController.h; sourceTree = "<group>"; };
+		3A4EFD5B18984481006F0C8F /* MasterViewController.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = MasterViewController.m; sourceTree = "<group>"; };
 		3A4EFD5D18984481006F0C8F /* Images.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Images.xcassets; sourceTree = "<group>"; };
 		3A4EFD6318984481006F0C8F /* LostCharactersTests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = LostCharactersTests.xctest; sourceTree = BUILT_PRODUCTS_DIR; };
 		3A4EFD6418984481006F0C8F /* XCTest.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = XCTest.framework; path = Library/Frameworks/XCTest.framework; sourceTree = DEVELOPER_DIR; };
 		3A4EFD6C18984481006F0C8F /* LostCharactersTests-Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = "LostCharactersTests-Info.plist"; sourceTree = "<group>"; };
 		3A4EFD6E18984481006F0C8F /* en */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; name = en; path = en.lproj/InfoPlist.strings; sourceTree = "<group>"; };
 		3A4EFD7018984481006F0C8F /* LostCharactersTests.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = LostCharactersTests.m; sourceTree = "<group>"; };
+		3A4EFD7B189845F9006F0C8F /* LostDataModel.xcdatamodel */ = {isa = PBXFileReference; lastKnownFileType = wrapper.xcdatamodel; path = LostDataModel.xcdatamodel; sourceTree = "<group>"; };
+		3A4EFD7D18985DAC006F0C8F /* Characters.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = Characters.h; sourceTree = "<group>"; };
+		3A4EFD7E18985DAC006F0C8F /* Characters.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = Characters.m; sourceTree = "<group>"; };
+		3A4EFD80189864FA006F0C8F /* AddCharacterViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = AddCharacterViewController.h; sourceTree = "<group>"; };
+		3A4EFD81189864FA006F0C8F /* AddCharacterViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = AddCharacterViewController.m; sourceTree = "<group>"; };
+		3A4EFD8318988B98006F0C8F /* CharacterDetailViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = CharacterDetailViewController.h; sourceTree = "<group>"; };
+		3A4EFD8418988B98006F0C8F /* CharacterDetailViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = CharacterDetailViewController.m; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -115,8 +126,15 @@
 				3A4EFD5418984481006F0C8F /* AppDelegate.h */,
 				3A4EFD5518984481006F0C8F /* AppDelegate.m */,
 				3A4EFD5718984481006F0C8F /* Main.storyboard */,
-				3A4EFD5A18984481006F0C8F /* ViewController.h */,
-				3A4EFD5B18984481006F0C8F /* ViewController.m */,
+				3A4EFD8318988B98006F0C8F /* CharacterDetailViewController.h */,
+				3A4EFD8418988B98006F0C8F /* CharacterDetailViewController.m */,
+				3A4EFD80189864FA006F0C8F /* AddCharacterViewController.h */,
+				3A4EFD81189864FA006F0C8F /* AddCharacterViewController.m */,
+				3A4EFD7D18985DAC006F0C8F /* Characters.h */,
+				3A4EFD7E18985DAC006F0C8F /* Characters.m */,
+				3A4EFD5A18984481006F0C8F /* MasterViewController.h */,
+				3A4EFD5B18984481006F0C8F /* MasterViewController.m */,
+				3A4EFD7A189845F9006F0C8F /* LostDataModel.xcdatamodeld */,
 				3A4EFD5D18984481006F0C8F /* Images.xcassets */,
 				3A4EFD4C18984481006F0C8F /* Supporting Files */,
 			);
@@ -249,9 +267,13 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				3A4EFD5C18984481006F0C8F /* ViewController.m in Sources */,
+				3A4EFD7F18985DAC006F0C8F /* Characters.m in Sources */,
+				3A4EFD5C18984481006F0C8F /* MasterViewController.m in Sources */,
+				3A4EFD8518988B98006F0C8F /* CharacterDetailViewController.m in Sources */,
 				3A4EFD5618984481006F0C8F /* AppDelegate.m in Sources */,
 				3A4EFD5218984481006F0C8F /* main.m in Sources */,
+				3A4EFD7C189845F9006F0C8F /* LostDataModel.xcdatamodeld in Sources */,
+				3A4EFD82189864FA006F0C8F /* AddCharacterViewController.m in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -470,6 +492,19 @@
 			defaultConfigurationIsVisible = 0;
 		};
 /* End XCConfigurationList section */
+
+/* Begin XCVersionGroup section */
+		3A4EFD7A189845F9006F0C8F /* LostDataModel.xcdatamodeld */ = {
+			isa = XCVersionGroup;
+			children = (
+				3A4EFD7B189845F9006F0C8F /* LostDataModel.xcdatamodel */,
+			);
+			currentVersion = 3A4EFD7B189845F9006F0C8F /* LostDataModel.xcdatamodel */;
+			path = LostDataModel.xcdatamodeld;
+			sourceTree = "<group>";
+			versionGroupType = wrapper.xcdatamodel;
+		};
+/* End XCVersionGroup section */
 	};
 	rootObject = 3A4EFD3A18984481006F0C8F /* Project object */;
 }

@@ -1,5 +1,5 @@
 //
-//  ViewController.h
+//  CharacterDetailViewController.h
 //  LostCharacters
 //
 //  Created by Matthew Graham on 1/28/14.
@@ -7,7 +7,10 @@
 //
 
 #import <UIKit/UIKit.h>
+#import "Characters.h"
 
-@interface ViewController : UIViewController
+@interface CharacterDetailViewController : UIViewController
+
+@property Characters *detailedCharacter;
 
 @end
