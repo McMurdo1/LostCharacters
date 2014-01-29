@@ -28,6 +28,7 @@
 - (void)viewDidLoad
 {
     [super viewDidLoad];
+    //self.view.backgroundColor = [UIColor colorWithPatternImage:[UIImage imageNamed:@"dharma.png"]];
 }
 
 - (IBAction)onCommitButtonPressed:(id)sender
@@ -39,7 +40,7 @@
     newCharacter.startYear = startYearTextField.text;
     newCharacter.endYear = endYearTextField.text;
     [detailManagedObjectContext save:nil];
-    UIAlertView *alert = [[UIAlertView alloc] initWithTitle:@"New Characted Added" message:@"Thanks!" delegate:self cancelButtonTitle:@"Ok" otherButtonTitles:nil];
+    UIAlertView *alert = [[UIAlertView alloc] initWithTitle:@"New Character Added" message:@"Thanks!" delegate:self cancelButtonTitle:@"Ok" otherButtonTitles:nil];
     [alert show];
 }
 
