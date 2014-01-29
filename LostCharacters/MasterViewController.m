@@ -17,8 +17,12 @@
 {
     NSMutableArray *lostCharactersArray;
     NSArray *characters;
+    NSMutableArray *filteredCharacters;
+    
     __weak IBOutlet UITableView *charactersTableView;
     __weak IBOutlet UITextField *searchTextField;
+    
+    BOOL isFiltered;
 
 }
 
@@ -30,18 +34,18 @@
 - (void)viewDidLoad
 {
     [super viewDidLoad];
+
+    searchTextField.delegate = self; // Set search bar delegate, used for filtering results
+    isFiltered = NO;
+    
     NSUserDefaults *userDefaults = [NSUserDefaults standardUserDefaults];
-    if (![userDefaults objectForKey:@"First Run"])
+    if (![userDefaults objectForKey:@"First Run"]) // Check if this is the initial app load
     {
         // First run; call initial load function
         [self initialLoad];
         [userDefaults setObject:[NSDate date] forKey:@"First Run"];
         [userDefaults synchronize];
     }
-    
-    
-    
-
     [self reload];
 }
 
@@ -70,27 +74,38 @@
     NSFetchRequest *request = [[NSFetchRequest alloc] initWithEntityName:@"Characters"];
     NSSortDescriptor *sortDescriptor = [[NSSortDescriptor alloc] initWithKey:@"passenger" ascending:YES];
     request.sortDescriptors = @[sortDescriptor];
-//    if (searchTextField.text)
-//    {
-//        NSPredicate *predicate = [NSPredicate predicateWithFormat:@"passenger CONTAINS[cd]%@",searchTextField.text];
-//        request.predicate = predicate;
-//    }
-
     characters = [managedObjectContext executeFetchRequest:request error:nil];
     [charactersTableView reloadData];
 }
 
 -(NSInteger)tableView:(UITableView *)tableView numberOfRowsInSection:(NSInteger)section
 {
-    return characters.count;
+    if (isFiltered == NO)
+    {
+        return characters.count;
+    }
+    else
+    {
+        return filteredCharacters.count;
+    }
 }
 
 -(UITableViewCell *)tableView:(UITableView *)tableView cellForRowAtIndexPath:(NSIndexPath *)indexPath
 {
-    Characters *character = [characters objectAtIndex:indexPath.row];
+    Characters *character;
+    if (isFiltered == NO)
+    {
+        character = [characters objectAtIndex:indexPath.row];
+    }
+    else
+    {
+        character = [filteredCharacters objectAtIndex:indexPath.row];
+    }
     UITableViewCell *cell = [tableView dequeueReusableCellWithIdentifier:@"CellReuseIdentifier"];
     cell.textLabel.text = character.passenger;
     cell.detailTextLabel.text = character.actor;
+    cell.textLabel.textColor = [UIColor whiteColor];
+    cell.detailTextLabel.textColor = [UIColor whiteColor];
     return cell;
 }
 
@@ -99,13 +114,11 @@
 {
     if ([segue.identifier isEqualToString: @"AddCharacterSegue"])
     {
-        NSLog(@"Segue Identifier is %@",segue.identifier);
         AddCharacterViewController *acvc = segue.destinationViewController;
         acvc.detailManagedObjectContext = self.managedObjectContext;
     }
     if ([segue.identifier isEqualToString:@"CharacterDetailSegue"])
     {
-        NSLog(@"The Segue Identifier is %@", segue.identifier);
         CharacterDetailViewController *dcvc = segue.destinationViewController;
         NSIndexPath *indexPath = [charactersTableView indexPathForSelectedRow];
         dcvc.detailedCharacter = [characters objectAtIndex:indexPath.row];
@@ -129,17 +142,24 @@
 
 -(BOOL)textFieldShouldReturn:(UITextField *)textField
 {
-    NSFetchRequest *request = [[NSFetchRequest alloc] initWithEntityName:@"Characters"];
-    NSSortDescriptor *sortDescriptor = [[NSSortDescriptor alloc] initWithKey:@"passenger" ascending:YES];
-    request.sortDescriptors = @[sortDescriptor];
-        if (searchTextField.text)
+    if (textField.text.length == 0)
     {
-            NSPredicate *predicate = [NSPredicate predicateWithFormat:@"passenger CONTAINS[cd]%@",searchTextField.text];
-            request.predicate = predicate;
+        isFiltered = NO;
     }
-    
-    characters = [managedObjectContext executeFetchRequest:request error:nil];
+    else
+    {
+        isFiltered = YES;
+        filteredCharacters = [NSMutableArray new];
+        for (Characters *filteredCharacter in characters) {
+            NSRange passengerRange = [filteredCharacter.passenger rangeOfString:textField.text options:NSCaseInsensitiveSearch];
+            if (passengerRange.location != NSNotFound)
+            {
+                [filteredCharacters addObject:filteredCharacter];
+            }
+        }
+    }
     [charactersTableView reloadData];
+    [textField resignFirstResponder];
     return YES;
 }
 
